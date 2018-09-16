@@ -18,7 +18,7 @@ RUN apt-get update \
 RUN pecl install redis
 
 
-RUN docker-php-ext-install -j$(nproc) iconv mysqli calendar  mysql  shmop sysvmsg sysvsem sysvshm \
+RUN docker-php-ext-install -j$(nproc) iconv mysqli calendar  shmop sysvmsg sysvsem sysvshm \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) zip \
     && docker-php-ext-install -j$(nproc) gd \
@@ -37,7 +37,7 @@ RUN a2enmod ssl
 #COPY ./config/php.ini /usr/local/etc/php/
 
 #copy the code
-RUN git clone https://github.com/tuthub/tutweb.git .
+RUN git clone https://github.com/tuthub/tut-web.git .
 
 
 
